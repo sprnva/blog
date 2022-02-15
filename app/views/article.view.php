@@ -108,7 +108,7 @@ $pd = new Parsedown();
                         <div class="col-md-12 d-flex flex-column align-items-start justify-content-center">
 
                             <h3 class="mt-3 mb-4 text-dark"><?= $blog['title'] ?></h3>
-                            <small class="text-muted mb-3">Feb, 10 2022</small>
+                            <small class="text-muted mb-3"><?= date('M d, Y', strtotime($blog['created_at'])) ?></small>
 
                             <?= $pd->text(html_entity_decode($blog['content'])); ?>
                         </div>

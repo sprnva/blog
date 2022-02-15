@@ -132,7 +132,7 @@ $pd = new Parsedown();
                                         <small>jagwarthegreat</small>
                                     </div>
                                     <div>
-                                        <p class="text-muted">Feb, 10 2022</p>
+                                        <p class="text-muted"><?= date('M d, Y', strtotime($blog['created_at'])) ?></p>
                                     </div>
                                 </div>
                             </div>
