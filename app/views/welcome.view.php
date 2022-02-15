@@ -43,6 +43,12 @@ $pd = new Parsedown();
             margin-bottom: 1rem;
             border-radius: .5rem !important;
         }
+
+        p img {
+            vertical-align: middle;
+            border-style: none;
+            width: 100%;
+        }
     </style>
 
     <script src="<?= public_url('/assets/sprnva/js/jquery-3.6.0.min.js') ?>"></script>
@@ -81,7 +87,7 @@ $pd = new Parsedown();
 
                 <ul class="navbar-nav flex-row ml-md-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= route('/home') ?>" style="font-size: 18px;font-weight: 500;">Home</a>
+                        <a class="nav-link" href="<?= route('/') ?>" style="font-size: 18px;font-weight: 500;">Home</a>
                     </li>
 
                     <li class="nav-item">
@@ -102,7 +108,11 @@ $pd = new Parsedown();
                             <div class="card-body">
                                 <div class="col-md-12 d-flex flex-column align-items-start justify-content-center">
 
-                                    <img src="public/storage/images/sprnva-logo.png" style="height: 200px;width: 100%;object-fit: cover;">
+                                    <?php
+                                    if ($blog['thumbnail'] != "") {
+                                    ?>
+                                        <img src="public/storage/images/sprnva-logo.png" style="height: 200px;width: 100%;object-fit: cover;">
+                                    <?php } ?>
 
                                     <h4 class="mt-3 mb-4 text-dark"><?= $blog['title'] ?></h4>
 
@@ -133,7 +143,9 @@ $pd = new Parsedown();
 
         </div>
 
+        <br>
         <?= $blogs->links() ?>
+        <br><br><br>
 
 
 

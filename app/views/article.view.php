@@ -43,6 +43,12 @@ $pd = new Parsedown();
             margin-bottom: 1rem;
             border-radius: .5rem !important;
         }
+
+        p img {
+            vertical-align: middle;
+            border-style: none;
+            width: 100% !important;
+        }
     </style>
 
     <script src="<?= public_url('/assets/sprnva/js/jquery-3.6.0.min.js') ?>"></script>
@@ -75,13 +81,13 @@ $pd = new Parsedown();
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?= route('/home') ?>" style="font-size: 18px;font-weight: 500;"><?= ucfirst($pageTitle); ?></a>
+                        <a class="nav-link active" href="<?= route('/') ?>" style="font-size: 18px;font-weight: 500;"><?= ucfirst($pageTitle); ?></a>
                     </li>
                 </ul>
 
                 <ul class="navbar-nav flex-row ml-md-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= route('/home') ?>" style="font-size: 18px;font-weight: 500;">Home</a>
+                        <a class="nav-link" href="<?= route('/') ?>" style="font-size: 18px;font-weight: 500;">Home</a>
                     </li>
 
                     <li class="nav-item">
@@ -97,29 +103,29 @@ $pd = new Parsedown();
 
 
             <div class="col-sm-12 col-md-8">
-                <a href="<?= route('', $blog['id']) ?>" style="color: inherit;text-decoration: none;">
-                    <div class="card mt-4" style="background-color: #fff; border: 0px; border-radius: 8px; box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2);">
-                        <div class="card-body">
-                            <div class="col-md-12 d-flex flex-column align-items-start justify-content-center">
+                <div class="card mt-4" style="background-color: #fff; border: 0px; border-radius: 8px; box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2);">
+                    <div class="card-body">
+                        <div class="col-md-12 d-flex flex-column align-items-start justify-content-center">
 
-                                <img src="public/storage/images/sprnva-logo.png" style="height: 200px;width: 100%;object-fit: cover;">
+                            <h3 class="mt-3 mb-4 text-dark"><?= $blog['title'] ?></h3>
+                            <small class="text-muted mb-3">Feb, 10 2022</small>
 
-                                <h4 class="mt-3 mb-4 text-dark"><?= $blog['title'] ?></h4>
+                            <?= $pd->text(html_entity_decode($blog['content'])); ?>
+                        </div>
+                        <div class="col-md-12 d-flex flex-row align-items-center justify-content-start mt-4 mb-4">
+                            <div>
+                                <img src="public/storage/images/sprnva-logo.png" style="height:100px;width: 100px;object-fit: cover;">
 
-                                <?= $pd->text(html_entity_decode($blog['content'])); ?>
                             </div>
-                            <div class="col-md-12 d-flex flex-row align-items-center justify-content-between">
-                                <div>
-                                    <img src="public/storage/images/sprnva-logo.png" style="height:50px;width: 50px;object-fit: cover;">
-                                    <small>jagwarthegreat</small>
-                                </div>
-                                <div>
-                                    <p class="text-muted">Feb, 10 2022</p>
+                            <div>
+                                <div class="col-md-12 d-flex flex-column">
+                                    <span>BY jagwarthegreat</span>
+                                    <span>Creator of Sprnva Framework</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
 
 

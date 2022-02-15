@@ -21,4 +21,15 @@ class WelcomeController
 
         return view('/home', compact('pageTitle'));
     }
+
+
+    public function detail($id)
+    {
+        $pageTitle = "Article Detail";
+
+        $blog = DB()->select("*", "blog", "id = '$id'")->get();
+
+        // display the GUI of the edit page
+        return view('/article', compact('pageTitle', 'blog'));
+    }
 }

@@ -21,6 +21,7 @@ class BlogController
 
     public function store()
     {
+        $user_id = Auth::user('id');
         // the request will be unique to test table
         // [means no duplicated in test table] 
         $request = Request::validate('', [
@@ -32,7 +33,9 @@ class BlogController
 
             $store_data = [
                 'title' => "$request[title]",
-                'description' => addslashes($request['description'])
+                'content' => addslashes($request['content']),
+                'user_id' => $user_id,
+                'created_at' => date("Y-m-d h:i:s")
             ];
 
             // test is the table in our database
@@ -100,13 +103,11 @@ class BlogController
         echo json_encode($result);
     }
 
-    public function detail($id)
+    public function create()
     {
-        $pageTitle = "Article Edit";
-
-        $blog = DB()->select("*", "blog", "id = '$id'")->get();
+        $pageTitle = "New Article";
 
         // display the GUI of the edit page
-        return view('/article', compact('pageTitle', 'blog'));
+        return view('/blog/create', compact('pageTitle'));
     }
 }

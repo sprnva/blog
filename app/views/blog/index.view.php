@@ -1,12 +1,7 @@
 <?php require __DIR__ . '/../layouts/head.php'; ?>
 
-<input class="form-control" type="text" id="title" placeholder="title">
-<span class="text-danger" id="title-error"></span>
 <br>
-<input class="form-control" type="text" id="description" placeholder="description">
-<span class="text-danger" id="description-error"></span>
-<br><br>
-<button class="btn btn-md btn-primary" onclick="add()">ADD</button>
+<a class="btn btn-md btn-primary" href="<?= route('/article/create') ?>">CREATE NEW</a>
 <br><br>
 <table class="table table-striped table-bordered">
     <tr>
@@ -32,7 +27,7 @@
             </td>
             <td><?= $blog['id'] ?></td>
             <td><?= $blog['title'] ?></td>
-            <td><?= $blog['content'] ?></td>
+            <td><?= (strlen($blog['content']) > 200) ? substr($blog['content'], 0, 200) . '...' : $blog['content']; ?></td>
             <td><?= $blog['user_id'] ?></td>
             <td><?= date('M d, Y', strtotime($blog['created_at'])) ?></td>
         </tr>
@@ -43,31 +38,6 @@
 <?= $blogs->links() ?>
 
 <script>
-    function add() {
-        var title = $("#title").val();
-        var description = $("#description").val();
-
-        // remember base_url + "/crud_add" will be 
-        // directed to config->routes->web.php
-        $.post(base_url + "/article/add", {
-            title: title,
-            content: description
-        }, function(data) {
-
-            // parse the json response from our controller
-            var res = JSON.parse(data);
-
-            if (res == 1) {
-                alert("ALL GOOD!");
-                location.reload();
-            } else {
-                // display the error in the span under the inputs
-                $("#title-error").html(res.title);
-                $("#description-error").html(res.content);
-            }
-        });
-    }
-
     function deleteItem(id) {
         $.post(base_url + "/article/delete", {
             id: id
