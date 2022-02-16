@@ -6,8 +6,15 @@ use App\Core\App;
 use App\Core\Parsedown;
 
 $pd = new Parsedown();
+
+if (!empty($blog['users'][0])) {
+    $user = $blog['users'][0];
+} else {
+    $user = $blog['users'];
+}
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -30,7 +37,7 @@ $pd = new Parsedown();
         body {
             font-weight: 300;
             font-family: Nunito;
-            color: #26425f;
+            color: #343a40 !important;
             background: #eef1f4;
         }
 
@@ -49,7 +56,72 @@ $pd = new Parsedown();
             border-style: none;
             width: 100% !important;
         }
+
+        pre {
+            padding: 15px;
+            width: 100%;
+            border-radius: 6px;
+            background: #2c2c2c !important;
+        }
+
+        .hljs {
+            background: none !important;
+            color: #fff !important;
+            text-shadow: none !important;
+            font-size: 1.1em !important;
+            overflow: hidden;
+        }
+
+        .hljs-deletion,
+        .hljs-number,
+        .hljs-quote,
+        .hljs-selector-class,
+        .hljs-selector-id,
+        .hljs-string,
+        .hljs-template-tag,
+        .hljs-type {
+            color: #0c8819 !important;
+        }
+
+        .hljs-tag .hljs-attr,
+        .hljs-tag .hljs-name {
+            color: #929292;
+        }
+
+        .hljs-punctuation,
+        .hljs-tag {
+            color: #888;
+        }
+
+        .hljs-attribute,
+        .hljs-doctag,
+        .hljs-keyword,
+        .hljs-meta .hljs-keyword,
+        .hljs-name,
+        .hljs-selector-tag {
+            font-weight: inherit;
+            color: #1f7199;
+        }
+
+        .hljs-section,
+        .hljs-title {
+            color: #ca473f;
+            font-weight: 400;
+        }
+
+        .hljs-link,
+        .hljs-operator,
+        .hljs-regexp,
+        .hljs-selector-attr,
+        .hljs-selector-pseudo,
+        .hljs-symbol,
+        .hljs-template-variable,
+        .hljs-variable {
+            color: #3f97b9;
+        }
     </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js" integrity="sha512-IaaKO80nPNs5j+VLxd42eK/7sYuXQmr+fyywCNA0e+C6gtQnuCXNtORe9xR4LqGPz5U9VpH+ff41wKs/ZmC3iA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="<?= public_url('/assets/sprnva/js/jquery-3.6.0.min.js') ?>"></script>
     <script src="<?= public_url('/assets/sprnva/js/popper.min.js') ?>"></script>
@@ -69,7 +141,7 @@ $pd = new Parsedown();
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: -webkit-sticky;position: sticky;top: 0;z-index: 100;border-bottom: 1px solid #eee;box-shadow: 0 2px 5px 0 rgb(0 0 0 / 10%);">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index: 100;border-bottom: 1px solid #eee;box-shadow: 0 2px 5px 0 rgb(0 0 0 / 10%);">
         <div class="container col-sm-12 col-md-8">
             <a class="navbar-brand" href="<?= route('/') ?>">
                 <img src="<?= public_url('/storage/images/sprnva-logo.png') ?>" alt="sprnva-logo" style="width: 40px; height: 40px;">
@@ -90,46 +162,40 @@ $pd = new Parsedown();
                         <a class="nav-link" href="<?= route('/') ?>" style="font-size: 18px;font-weight: 500;">Home</a>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="<?= route('/releases') ?>" style="font-size: 18px;font-weight: 500;">Releases</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container" style="overflow: auto;">
 
-        <div class="row justify-content-center">
-
-
+        <div class="row justify-content-center mb-4">
             <div class="col-sm-12 col-md-8">
                 <div class="card mt-4" style="background-color: #fff; border: 0px; border-radius: 8px; box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2);">
                     <div class="card-body">
                         <div class="col-md-12 d-flex flex-column align-items-start justify-content-center">
 
-                            <h3 class="mt-3 mb-4 text-dark"><?= $blog['title'] ?></h3>
-                            <small class="text-muted mb-3"><?= date('M d, Y', strtotime($blog['created_at'])) ?></small>
+                            <h3 class="mt-3 text-dark"><?= $blog['title'] ?></h3>
+                            <small class="text-muted mb-4"><?= date('M d, Y', strtotime($blog['created_at'])) ?></small>
 
-                            <?= $pd->text(html_entity_decode($blog['content'])); ?>
+                            <?= $pd->text(html_entity_decode(html_entity_decode($blog['content']))); ?>
                         </div>
                         <div class="col-md-12 d-flex flex-row align-items-center justify-content-start mt-4 mb-4">
                             <div>
-                                <img src="public/storage/images/sprnva-logo.png" style="height:100px;width: 100px;object-fit: cover;">
+                                <img src="<?= (!empty($user['avatar'])) ? public_url($user['avatar']) : public_url('/storage/images/default.png'); ?>" style="height:100px;width: 100px;object-fit: cover;border-radius: 50%;">
 
                             </div>
                             <div>
                                 <div class="col-md-12 d-flex flex-column">
-                                    <span>BY jagwarthegreat</span>
-                                    <span>Creator of Sprnva Framework</span>
+                                    <span>BY <?= $user['fullname'] ?></span>
+                                    <span><?= $user['job_desc'] ?></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
-
-
         <?php require 'layouts/footer.php'; ?>

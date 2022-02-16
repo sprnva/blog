@@ -30,7 +30,7 @@ $pd = new Parsedown();
         body {
             font-weight: 300;
             font-family: Nunito;
-            color: #26425f;
+            color: #343a40 !important;
             background: #eef1f4;
         }
 
@@ -44,12 +44,81 @@ $pd = new Parsedown();
             border-radius: .5rem !important;
         }
 
+        p {
+            color: #343a40 !important;
+        }
+
         p img {
             vertical-align: middle;
             border-style: none;
             width: 100%;
         }
+
+        pre {
+            padding: 15px;
+            width: 100%;
+            border-radius: 6px;
+            background: #2c2c2c !important;
+        }
+
+        .hljs {
+            background: none !important;
+            color: #fff !important;
+            text-shadow: none !important;
+            font-size: 1.1em !important;
+            overflow: hidden;
+        }
+
+        .hljs-deletion,
+        .hljs-number,
+        .hljs-quote,
+        .hljs-selector-class,
+        .hljs-selector-id,
+        .hljs-string,
+        .hljs-template-tag,
+        .hljs-type {
+            color: #0c8819 !important;
+        }
+
+        .hljs-tag .hljs-attr,
+        .hljs-tag .hljs-name {
+            color: #929292;
+        }
+
+        .hljs-punctuation,
+        .hljs-tag {
+            color: #888;
+        }
+
+        .hljs-attribute,
+        .hljs-doctag,
+        .hljs-keyword,
+        .hljs-meta .hljs-keyword,
+        .hljs-name,
+        .hljs-selector-tag {
+            font-weight: inherit;
+            color: #1f7199;
+        }
+
+        .hljs-section,
+        .hljs-title {
+            color: #ca473f;
+            font-weight: 400;
+        }
+
+        .hljs-link,
+        .hljs-operator,
+        .hljs-regexp,
+        .hljs-selector-attr,
+        .hljs-selector-pseudo,
+        .hljs-symbol,
+        .hljs-template-variable,
+        .hljs-variable {
+            color: #3f97b9;
+        }
     </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js" integrity="sha512-IaaKO80nPNs5j+VLxd42eK/7sYuXQmr+fyywCNA0e+C6gtQnuCXNtORe9xR4LqGPz5U9VpH+ff41wKs/ZmC3iA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="<?= public_url('/assets/sprnva/js/jquery-3.6.0.min.js') ?>"></script>
     <script src="<?= public_url('/assets/sprnva/js/popper.min.js') ?>"></script>
@@ -69,7 +138,7 @@ $pd = new Parsedown();
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: -webkit-sticky;position: sticky;top: 0;z-index: 100;border-bottom: 1px solid #eee;box-shadow: 0 2px 5px 0 rgb(0 0 0 / 10%);">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index: 100;border-bottom: 1px solid #eee;box-shadow: 0 2px 5px 0 rgb(0 0 0 / 10%);">
         <div class="container col-sm-12 col-md-8">
             <a class="navbar-brand" href="<?= route('/') ?>">
                 <img src="<?= public_url('/storage/images/sprnva-logo.png') ?>" alt="sprnva-logo" style="width: 40px; height: 40px;">
@@ -81,7 +150,7 @@ $pd = new Parsedown();
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?= route('/home') ?>" style="font-size: 18px;font-weight: 500;"><?= ucfirst($pageTitle); ?></a>
+                        <a class="nav-link active" href="<?= route('/') ?>" style="font-size: 18px;font-weight: 500;"><?= ucfirst($pageTitle); ?></a>
                     </li>
                 </ul>
 
@@ -90,9 +159,9 @@ $pd = new Parsedown();
                         <a class="nav-link" href="<?= route('/') ?>" style="font-size: 18px;font-weight: 500;">Home</a>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="<?= route('/releases') ?>" style="font-size: 18px;font-weight: 500;">Releases</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -101,7 +170,14 @@ $pd = new Parsedown();
 
         <div class="row justify-content-center">
 
-            <?php foreach ($blogs->get() as $blog) { ?>
+            <?php
+            foreach ($blogs->get() as $blog) {
+                if (!empty($blog['users'][0])) {
+                    $user = $blog['users'][0];
+                } else {
+                    $user = $blog['users'];
+                }
+            ?>
                 <div class="col-sm-12 col-md-8">
                     <a href="<?= route('', $blog['id']) ?>" style="color: inherit;text-decoration: none;">
                         <div class="card mt-4" style="background-color: #fff; border: 0px; border-radius: 8px; box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2);">
@@ -117,22 +193,24 @@ $pd = new Parsedown();
                                     <h4 class="mt-3 mb-4 text-dark"><?= $blog['title'] ?></h4>
 
                                     <?php
-                                    $totalChar = strlen(html_entity_decode($blog['content']));
+                                    $totalChar = strlen(html_entity_decode(html_entity_decode($blog['content'])));
 
                                     if ($totalChar > 300) {
-                                        echo $pd->text(substr(html_entity_decode($blog['content']), 0, 300) . "...");
+                                        echo $pd->text(substr(html_entity_decode(html_entity_decode($blog['content'])), 0, 300) . "...");
                                     } else {
-                                        echo $pd->text(substr(html_entity_decode($blog['content']), 0, 300));
+                                        echo $pd->text(substr(html_entity_decode(html_entity_decode($blog['content'])), 0, 300));
                                     }
                                     ?>
                                 </div>
                                 <div class="col-md-12 d-flex flex-row align-items-center justify-content-between">
                                     <div>
-                                        <img src="public/storage/images/sprnva-logo.png" style="height:50px;width: 50px;object-fit: cover;">
-                                        <small>jagwarthegreat</small>
+
+                                        <img src="<?= (!empty($user['avatar'])) ? public_url($user['avatar']) : public_url('/storage/images/default.png'); ?>" style="height:40px;width: 40px;object-fit: cover;border-radius: 50%;">
+
+                                        <small class="ml-2"><?= $user['fullname']; ?></small>
                                     </div>
                                     <div>
-                                        <p class="text-muted"><?= date('M d, Y', strtotime($blog['created_at'])) ?></p>
+                                        <small class="text-muted"><?= date('M d, Y', strtotime($blog['created_at'])) ?></small>
                                     </div>
                                 </div>
                             </div>

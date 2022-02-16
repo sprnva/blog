@@ -13,7 +13,9 @@ class BlogController
     {
         $pageTitle = "Articles";
 
-        $blogs = DB()->selectLoop("*", "blog")->paginate(10);
+        $blogs = DB()->selectLoop("*", "blog", "id > 0 ORDER BY id DESC")->paginate(10)->with([
+            "users" => ['user_id', 'id']
+        ]);
 
         // display GUI of crud index
         return view('/blog/index', compact('pageTitle', 'blogs'));
@@ -96,7 +98,7 @@ class BlogController
         // nothing to validate? just leave it blank
         $request = Request::validate();
 
-        $result = DB()->delete('test', "id = '$request[id]'");
+        $result = DB()->delete('blog', "id = '$request[id]'");
 
         // echo the response we get from our query
         // delete query output will be 1 = inserted/ok , 0 = error

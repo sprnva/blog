@@ -1,6 +1,5 @@
 <?php require __DIR__ . '/../layouts/head.php'; ?>
 
-<br>
 <a class="btn btn-md btn-primary" href="<?= route('/article/create') ?>">CREATE NEW</a>
 <br><br>
 <table class="table table-striped table-bordered">
@@ -28,7 +27,7 @@
             <td><?= $blog['id'] ?></td>
             <td><?= $blog['title'] ?></td>
             <td><?= (strlen($blog['content']) > 200) ? substr($blog['content'], 0, 200) . '...' : $blog['content']; ?></td>
-            <td><?= $blog['user_id'] ?></td>
+            <td><?= (!empty($blog['users'][0])) ? $blog['users'][0]['fullname'] : $blog['users']['fullname']; ?></td>
             <td><?= date('M d, Y', strtotime($blog['created_at'])) ?></td>
         </tr>
     <?php } ?>

@@ -49,7 +49,7 @@ use App\Core\App;
 
                         <?= alert_msg(); ?>
 
-                        <form method="POST" action="<?= route('/reset/password') ?>">
+                        <form method="POST" action="<?= route('/x/reset/password') ?>">
                             <?= csrf() ?>
                             <input type="hidden" name="token" value="<?= $token ?>">
                             <small class="text-muted">You can now update your password.</small>

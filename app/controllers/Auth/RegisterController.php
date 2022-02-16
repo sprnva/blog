@@ -20,7 +20,7 @@ class RegisterController
 
     public function store()
     {
-        $request = Request::validate('/register', [
+        $request = Request::validate('/x/register', [
             'email' => ['required', 'email'],
             'username' => ['required', 'unique:users'],
             'password' => ['required'],
@@ -36,6 +36,6 @@ class RegisterController
         ];
 
         DB()->insert("users", $register_user);
-        redirect('/register', ["message" => "Success register"]);
+        redirect('/x/register', ["message" => "Success register"]);
     }
 }

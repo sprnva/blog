@@ -6,6 +6,39 @@ use App\Core\Auth;
     <div class="col-12">
         <?= alert_msg(); ?>
     </div>
+
+    <div class="col-12">
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <h5>Avatar</h5>
+                    <small class="text-muted">Update your avatar.</small>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card" style="background-color: #fff; border: 0px; border-radius: 8px; box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2);">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <img src="<?= (!empty($user_data['avatar'])) ? public_url($user_data['avatar']) : public_url('/storage/images/default.png'); ?>" style="height:150px;width: 150px;object-fit: cover;border-radius: 50%;">
+                                </div>
+                                <form method="POST" action="<?= route('/profile/uploadAvatar') ?>" enctype="multipart/form-data">
+                                    <?= csrf() ?>
+                                    <div class="form-group">
+                                        <input type="file" class="form-control" name="upload_file" accept="image/png, image/jpeg, image/gif" />
+                                    </div>
+
+                                    <div class="d-flex justify-content-end"><button type="submit" class="btn btn-secondary btn-sm text-rigth">SAVE</button></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="col-12">
         <div class="row">
             <div class="col-md-4">
@@ -24,6 +57,10 @@ use App\Core\Auth;
                                     <div class="form-group">
                                         <label for="username">E-mail</label>
                                         <input type="email" class="form-control" name="email" autocomplete="off" value="<?= $user_data['email'] ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="job_desc">Job Description</label>
+                                        <input type="job_desc" class="form-control" name="job_desc" autocomplete="off" value="<?= $user_data['job_desc'] ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="username">Name</label>

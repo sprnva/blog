@@ -20,7 +20,7 @@ class AuthController
 
     public function store()
     {
-        $request = Request::validate('/login', [
+        $request = Request::validate('/x/login', [
             'username' => ['required'],
             'password' => ['required']
         ]);
@@ -44,7 +44,7 @@ class AuthController
 
     public function sendResetLink()
     {
-        $request = Request::validate('/forgot/password', [
+        $request = Request::validate('/x/forgot/password', [
             'email' => ['required'],
         ]);
 
@@ -59,7 +59,7 @@ class AuthController
 
     public function passwordStore()
     {
-        $request = Request::validate('/reset/password/' . $_POST['token'], [
+        $request = Request::validate('/x/reset/password/' . $_POST['token'], [
             'new_password' => ['required'],
             'confirm_password' => ['required']
         ]);

@@ -53,7 +53,7 @@ use App\Core\Request;
 
                         <?= alert_msg(); ?>
 
-                        <form method="POST" action="<?= route('/login') ?>">
+                        <form method="POST" action="<?= route('/x/login') ?>">
                             <?= csrf() ?>
                             <div class="form-group">
                                 <label for="username">Username</label>
@@ -64,7 +64,7 @@ use App\Core\Request;
                                 <input type="password" class="form-control" name="password" autocomplete="off">
                             </div>
                             <div class="d-flex justify-content-end">
-                                <a href="<?= route('/forgot/password'); ?>" style="font-size: 18px;">
+                                <a href="<?= route('/x/forgot/password'); ?>" style="font-size: 18px;">
                                     <small id="emailHelp" class="form-text text-muted mb-1">Forgot password?</small>
                                 </a>
                                 <div class="d-flex justify-content-end ml-3"><button type="submit" class="btn btn-secondary btn-sm text-rigth">LOGIN</button></div>

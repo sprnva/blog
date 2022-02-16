@@ -38,8 +38,72 @@ use App\Core\Auth;
 			margin-bottom: 1rem;
 			border-radius: .5rem !important;
 		}
+
+		pre {
+			padding: 15px;
+			width: 100%;
+			border-radius: 6px;
+			background: #2c2c2c !important;
+		}
+
+		.hljs {
+			background: none !important;
+			color: #fff !important;
+			text-shadow: none !important;
+			font-size: 1.1em !important;
+			overflow: hidden;
+		}
+
+		.hljs-deletion,
+		.hljs-number,
+		.hljs-quote,
+		.hljs-selector-class,
+		.hljs-selector-id,
+		.hljs-string,
+		.hljs-template-tag,
+		.hljs-type {
+			color: #0c8819 !important;
+		}
+
+		.hljs-tag .hljs-attr,
+		.hljs-tag .hljs-name {
+			color: #929292;
+		}
+
+		.hljs-punctuation,
+		.hljs-tag {
+			color: #888;
+		}
+
+		.hljs-attribute,
+		.hljs-doctag,
+		.hljs-keyword,
+		.hljs-meta .hljs-keyword,
+		.hljs-name,
+		.hljs-selector-tag {
+			font-weight: inherit;
+			color: #1f7199;
+		}
+
+		.hljs-section,
+		.hljs-title {
+			color: #ca473f;
+			font-weight: 400;
+		}
+
+		.hljs-link,
+		.hljs-operator,
+		.hljs-regexp,
+		.hljs-selector-attr,
+		.hljs-selector-pseudo,
+		.hljs-symbol,
+		.hljs-template-variable,
+		.hljs-variable {
+			color: #3f97b9;
+		}
 	</style>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js" integrity="sha512-IaaKO80nPNs5j+VLxd42eK/7sYuXQmr+fyywCNA0e+C6gtQnuCXNtORe9xR4LqGPz5U9VpH+ff41wKs/ZmC3iA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="<?= public_url('/assets/sprnva/js/jquery-3.6.0.min.js') ?>"></script>
 	<script src="<?= public_url('/assets/sprnva/js/popper.min.js') ?>"></script>
 	<script src="<?= public_url('/assets/sprnva/js/bootstrap.min.js') ?>"></script>
