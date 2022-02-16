@@ -180,7 +180,7 @@ if (!empty($blog['users'][0])) {
                             <h3 class="mt-3 text-dark"><?= $blog['title'] ?></h3>
                             <small class="text-muted mb-4"><?= date('M d, Y', strtotime($blog['created_at'])) ?></small>
 
-                            <?= $pd->text(html_entity_decode(html_entity_decode($blog['content']))); ?>
+                            <?= (!empty($blog['content'])) ? $pd->text(html_entity_decode(html_entity_decode($blog['content']))) : ''; ?>
                         </div>
                         <div class="col-md-12 d-flex flex-row align-items-center justify-content-start mt-4 mb-4">
                             <div>
