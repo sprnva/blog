@@ -33,7 +33,7 @@ class BlogController
 
         if (empty($request['validationError'])) {
 
-            $urlLink = str_replace([" ", "_", ".", ","], '-', str_replace(["\"", "\'"], '', strtolower(html_entity_decode($request['title']))));
+            $urlLink = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace([" ", "_", ".", ","], '-', strtolower(html_entity_decode($request['title']))));
 
             $store_data = [
                 'title' => "$request[title]",
@@ -79,7 +79,7 @@ class BlogController
 
         if (empty($request['validationError'])) {
 
-            $urlLink = str_replace([" ", "_", ".", ","], '-', str_replace(["\"", "\'"], '', strtolower(html_entity_decode($request['title']))));
+            $urlLink = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace([" ", "_", ".", ","], '-', strtolower(html_entity_decode($request['title']))));
 
             $update_data = [
                 'title' => "$request[title]",
