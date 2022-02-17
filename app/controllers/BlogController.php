@@ -33,11 +33,14 @@ class BlogController
 
         if (empty($request['validationError'])) {
 
+            $urlLink = str_replace([" ", "_", ".", ","], '-', str_replace(["\"", "\'"], '', strtolower(html_entity_decode($request['title']))));
+
             $store_data = [
                 'title' => "$request[title]",
                 'content' => addslashes($request['content']),
                 'user_id' => $user_id,
-                'created_at' => date("Y-m-d h:i:s")
+                'created_at' => date("Y-m-d h:i:s"),
+                'url' => $urlLink
             ];
 
             // test is the table in our database
@@ -76,9 +79,12 @@ class BlogController
 
         if (empty($request['validationError'])) {
 
+            $urlLink = str_replace([" ", "_", ".", ","], '-', str_replace(["\"", "\'"], '', strtolower(html_entity_decode($request['title']))));
+
             $update_data = [
                 'title' => "$request[title]",
-                'content' => addslashes($request['content'])
+                'content' => addslashes($request['content']),
+                'url' => $urlLink
             ];
 
             $result = DB()->update('blog', $update_data, "id = '$id'");

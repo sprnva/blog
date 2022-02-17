@@ -179,7 +179,7 @@ $pd = new Parsedown();
                 }
             ?>
                 <div class="col-sm-12 col-md-8">
-                    <a href="<?= route('', $blog['id']) ?>" style="color: inherit;text-decoration: none;">
+                    <a href="<?= route('', $blog['url']) ?>" style="color: inherit;text-decoration: none;">
                         <div class="card mt-4" style="background-color: #fff; border: 0px; border-radius: 8px; box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2);">
                             <div class="card-body">
                                 <div class="col-md-12 d-flex flex-column align-items-start justify-content-center">

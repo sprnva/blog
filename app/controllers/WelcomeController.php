@@ -25,11 +25,11 @@ class WelcomeController
     }
 
 
-    public function detail($id)
+    public function detail($url)
     {
-        $pageTitle = "Article Detail";
+        $pageTitle = "The Sprnva Blog";
 
-        $blog = DB()->select("*", "blog", "id = '$id'")->with([
+        $blog = DB()->select("*", "blog", "url = '$url'")->with([
             "users" => ['user_id', 'id']
         ])->get();
 

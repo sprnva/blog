@@ -15,7 +15,7 @@ use App\Core\Routing\Route;
 Route::get('/', ['WelcomeController@index']);
 Route::get('/home', ['WelcomeController@home', ['auth']]);
 
-Route::get('/{id}', ['WelcomeController@detail']);
+Route::get('/{url}', ['WelcomeController@detail']);
 
 Route::group(['prefix' => 'article', 'middleware' => ['auth']], function () {
     Route::get('/', ['BlogController@index']);
