@@ -20,6 +20,9 @@ if (!empty($blog['users'][0])) {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="<?= $blog['title'] ?>" />
+    <meta property="og:description" content="<?= (!empty($blog['content'])) ? $pd->text(html_entity_decode(html_entity_decode($blog['content']))) : ''; ?>" />
+    <!-- <meta property="og:image" content="" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='icon' href='<?= public_url('/favicon.ico') ?>' type='image/ico' />
     <title>
