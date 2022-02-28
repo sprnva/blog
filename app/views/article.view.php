@@ -20,14 +20,25 @@ if (!empty($blog['users'][0])) {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:title" content="<?= $blog['title'] ?>" />
-    <meta property="og:description" content="click here to read the full blog" />
-    <!-- <meta property="og:image" content="" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='icon' href='<?= public_url('/favicon.ico') ?>' type='image/ico' />
-    <title>
-        <?= ucfirst($pageTitle) . " | " . App::get('config')['app']['name'] ?>
-    </title>
+    <title> <?= ucfirst($pageTitle) . " | " . App::get('config')['app']['name'] ?> </title>
+
+    <meta name="twitter:image:src" content="https://user-images.githubusercontent.com/37282871/155911888-75dbd031-e837-4606-94f3-d9f85b5eabaf.png" />
+    <meta name="twitter:site" content="@jagwarthegreat" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<?= $blog['title'] ?>" />
+    <meta name="twitter:description" content="The Sprnva Blog. Read some of the latest articles about sprnva framework." />
+
+    <meta property="og:image" content="https://user-images.githubusercontent.com/37282871/155911888-75dbd031-e837-4606-94f3-d9f85b5eabaf.png" />
+    <meta property="og:image:alt" content="The Sprnva Framework. Contribute to sprnva/framework development by creating an account on GitHub." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="600" />
+    <meta property="og:site_name" content="blog.sprnva.com" />
+    <meta property="og:type" content="object" />
+    <meta property="og:title" content="<?= $blog['title'] ?>" />
+    <meta property="og:url" content="<?= $_SERVER['REQUEST_URI']; ?>" />
+    <meta property="og:description" content="The Sprnva Blog. Read some of the latest articles about sprnva framework." />
 
     <link rel="stylesheet" href="<?= public_url('/assets/sprnva/css/bootstrap.min.css') ?>">
 
