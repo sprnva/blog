@@ -29,11 +29,18 @@ class WelcomeController
     {
         $pageTitle = "The Sprnva Blog";
 
-        $blog = DB()->select("*", "blog", "url = '$url'")->with([
-            "users" => ['user_id', 'id']
-        ])->get();
+        $blogs = DB()->select("*", "blog", "url = '$url'");
 
-        // display the GUI of the edit page
-        return view('/article', compact('pageTitle', 'blog'));
+        if (!$blogs->get()) {
+            return abort(404, 'NOT FOUND');
+        } else {
+
+            $blog = $blogs->with([
+                "users" => ['user_id', 'id']
+            ])->get();
+
+            // display the GUI of the edit page
+            return view('/article', compact('pageTitle', 'blog'));
+        }
     }
 }
