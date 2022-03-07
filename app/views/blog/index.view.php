@@ -13,14 +13,13 @@
     </tr>
 
     <!-- iterate $cruddata from our controller  -->
-    <?php foreach ($blogs->get() as $blog) { ?>
+    <?php foreach ($blogs as $blog) { ?>
         <tr>
             <td class="text-center">
-                <a href="<?= route('/article/edit', $blog['id']) ?>">
+                <a class="btn btn-secondary btn-sm" href="<?= route('/article/edit', $blog['id']) ?>">
                     edit
                 </a>
-                <span class="text-muted">|</span>
-                <a href="" onclick="deleteItem('<?= $blog['id'] ?>')">
+                <a class="btn btn-danger btn-sm" href="" onclick="deleteItem('<?= $blog['id'] ?>')">
                     delete
                 </a>
             </td>
@@ -34,7 +33,7 @@
 
 </table>
 
-<?= $blogs->links() ?>
+<?= $links ?>
 
 <script>
     function deleteItem(id) {

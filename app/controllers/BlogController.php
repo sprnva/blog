@@ -13,12 +13,15 @@ class BlogController
     {
         $pageTitle = "Articles";
 
-        $blogs = DB()->selectLoop("*", "blog", "id > 0 ORDER BY id DESC")->paginate(10)->with([
+        $_blogs = DB()->selectLoop("*", "blog", "id > 0 ORDER BY id DESC")->paginate(10)->with([
             "users" => ['user_id', 'id']
         ]);
 
+        $blogs = $_blogs->get();
+        $links = $_blogs->links();
+
         // display GUI of crud index
-        return view('/blog/index', compact('pageTitle', 'blogs'));
+        return view('/blog/index', compact('pageTitle', 'blogs', 'links'));
     }
 
     public function store()

@@ -4,57 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ebd4bb692fa7e27ea3a9d9eb3fec5c1e",
+    "content-hash": "c8ead390c72461761360bc346250d919",
     "packages": [
         {
-            "name": "sprnva/fortify",
-            "version": "v1.0.15",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sprnva/fortify.git",
-                "reference": "53df8cfc6daf44a802ff63e6b09a46efd906c7fd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sprnva/fortify/zipball/53df8cfc6daf44a802ff63e6b09a46efd906c7fd",
-                "reference": "53df8cfc6daf44a802ff63e6b09a46efd906c7fd",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Judywen Guapin",
-                    "email": "jguapin21@gmail.com"
-                }
-            ],
-            "description": "The Authentication Scaffolding for Sprnva Framework.",
-            "keywords": [
-                "auth",
-                "framework",
-                "sprnva"
-            ],
-            "support": {
-                "issues": "https://github.com/sprnva/fortify/issues",
-                "source": "https://github.com/sprnva/fortify/tree/v1.0.15"
-            },
-            "time": "2021-10-22T02:01:42+00:00"
-        },
-        {
             "name": "sprnva/framework",
-            "version": "v1.3.41",
+            "version": "v1.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sprnva/framework.git",
-                "reference": "656d2b0ef0b8b52ced778196506297fe95fbe32c"
+                "reference": "7fca90d187bf38bdba68e8a33cf41b212f85ca19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sprnva/framework/zipball/656d2b0ef0b8b52ced778196506297fe95fbe32c",
-                "reference": "656d2b0ef0b8b52ced778196506297fe95fbe32c",
+                "url": "https://api.github.com/repos/sprnva/framework/zipball/7fca90d187bf38bdba68e8a33cf41b212f85ca19",
+                "reference": "7fca90d187bf38bdba68e8a33cf41b212f85ca19",
                 "shasum": ""
             },
             "type": "library",
@@ -82,12 +45,50 @@
             ],
             "support": {
                 "issues": "https://github.com/sprnva/framework/issues",
-                "source": "https://github.com/sprnva/framework/tree/v1.3.41"
+                "source": "https://github.com/sprnva/framework/tree/v1.4.10"
             },
-            "time": "2022-02-15T05:21:52+00:00"
+            "time": "2022-03-07T00:03:40+00:00"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "sprnva/fortify",
+            "version": "v1.0.19",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sprnva/fortify.git",
+                "reference": "9f3fad4185281998746a9c40fe847942448ea5c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sprnva/fortify/zipball/9f3fad4185281998746a9c40fe847942448ea5c4",
+                "reference": "9f3fad4185281998746a9c40fe847942448ea5c4",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Judywen Guapin",
+                    "email": "jguapin21@gmail.com"
+                }
+            ],
+            "description": "The Authentication Scaffolding for Sprnva Framework.",
+            "keywords": [
+                "auth",
+                "framework",
+                "sprnva"
+            ],
+            "support": {
+                "issues": "https://github.com/sprnva/fortify/issues",
+                "source": "https://github.com/sprnva/fortify/tree/v1.0.19"
+            },
+            "time": "2022-03-01T07:52:30+00:00"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": [],

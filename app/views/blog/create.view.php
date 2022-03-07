@@ -18,6 +18,11 @@
 <!-- <input class="form-control mt-4" type="file" id="thumbnail" placeholder="thumbnail"> -->
 
 <br>
+
+<div class="alert alert-warning mt-3" role="alert">
+    The content is markdown ready. Please visit to the markdown cheat sheet.
+</div>
+
 <div class="form-control" style="font-size: 16px;word-break: break-word;white-space: pre-wrap;color: #4e4e4e; margin-bottom: 5px;line-height: 22px;-webkit-user-modify: read-write-plaintext-only;outline: -webkit-focus-ring-color auto 0px;background-color: #fff;padding: 30px;border-radius: 4px;" contenteditable="true" id="description" placeholder="type your content here..."></div>
 
 <span class="text-danger" id="description-error"></span>
