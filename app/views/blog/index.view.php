@@ -2,7 +2,7 @@
 
 <a class="btn btn-md btn-primary" href="<?= route('/article/create') ?>">CREATE NEW</a>
 <br><br>
-<table class="table table-striped table-bordered">
+<table class="table table-bordered">
     <tr>
         <th style="width: 13%;"></th>
         <th class="text-center" style="width: 3%;">ID</th>
