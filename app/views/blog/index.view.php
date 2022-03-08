@@ -4,12 +4,12 @@
 <br><br>
 <table class="table table-striped table-bordered">
     <tr>
-        <th></th>
-        <th>ID</th>
+        <th style="width: 13%;"></th>
+        <th class="text-center" style="width: 3%;">ID</th>
         <th>TITLE</th>
         <th>CONTENT</th>
-        <th>CREATED BY</th>
-        <th>CREATED DATE</th>
+        <th style="width: 13%;">CREATED BY</th>
+        <th style="width: 13%;">CREATED DATE</th>
     </tr>
 
     <!-- iterate $cruddata from our controller  -->
@@ -23,7 +23,7 @@
                     delete
                 </a>
             </td>
-            <td><?= $blog['id'] ?></td>
+            <td class="text-center"><?= $blog['id'] ?></td>
             <td><?= $blog['title'] ?></td>
             <td><?= (strlen($blog['content']) > 200) ? substr($blog['content'], 0, 200) . '...' : $blog['content']; ?></td>
             <td><?= (!empty($blog['users'][0])) ? $blog['users'][0]['fullname'] : $blog['users']['fullname']; ?></td>

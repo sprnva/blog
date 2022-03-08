@@ -102,6 +102,21 @@ use App\Core\Storage;
 		.hljs-variable {
 			color: #3f97b9;
 		}
+
+		.table td,
+		.table th {
+			padding: 0.45rem;
+		}
+
+		.table th {
+			background-color: #eaecf0;
+		}
+
+		.table tr,
+		.table th,
+		.table td {
+			border: 1px solid #a2a9b1;
+		}
 	</style>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
