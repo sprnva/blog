@@ -199,7 +199,7 @@ $pd = new Parsedown();
                     </li>
                 </ul>
 
-                <ul class="navbar-nav flex-row ml-md-auto">
+                <ul class="navbar-nav ml-md-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="<?= route('/') ?>" style="font-size: 18px;font-weight: 500;">Home</a>
                     </li>
