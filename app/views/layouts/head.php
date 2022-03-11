@@ -27,7 +27,7 @@ use App\Core\Storage;
 			font-weight: 300;
 			font-family: Nunito;
 			color: #26425f;
-			background: #eef1f4;
+			background: #f7f7f7;
 		}
 
 		.bg-light {

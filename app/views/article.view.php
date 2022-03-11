@@ -52,7 +52,7 @@ if (!empty($blog['users'][0])) {
             font-weight: 300;
             font-family: Nunito;
             color: #343a40 !important;
-            background: #eef1f4;
+            background: #f7f7f7;
         }
 
         .bg-light {
