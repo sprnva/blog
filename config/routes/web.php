@@ -25,7 +25,3 @@ Route::group(['prefix' => 'article', 'middleware' => ['auth']], function () {
     Route::post('/delete', ['BlogController@deleteItem']);
     Route::get('/create', ['BlogController@create']);
 });
-
-Route::get('/test', function () {
-    dd(Route::uriCollection());
-});
