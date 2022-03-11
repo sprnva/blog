@@ -216,14 +216,19 @@ if (!empty($blog['users'][0])) {
                     </li>
                 </ul>
 
-                <ul class="navbar-nav flex-row ml-md-auto">
+                <ul class="navbar-nav ml-md-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="<?= route('/') ?>" style="font-size: 18px;font-weight: 500;">Home</a>
                     </li>
-
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="<?= route('/releases') ?>" style="font-size: 18px;font-weight: 500;">Releases</a>
-                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://docs.sprnva.space/" style="font-size: 18px;font-weight: 500;">Docs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://github.com/sprnva" style="font-size: 18px;font-weight: 500;">Github</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://github.com/sprnva/framework/releases" style="font-size: 18px;font-weight: 500;">Releases</a>
+                    </li>
                 </ul>
             </div>
         </div>
