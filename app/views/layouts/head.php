@@ -55,52 +55,84 @@ use App\Core\Storage;
 			overflow: hidden;
 		}
 
+		.hljs-comment,
+		.hljs-quote {
+			font-weight: 500;
+			color: rgb(156 163 175);
+		}
+
+		.hljs-attr,
 		.hljs-deletion,
-		.hljs-number,
-		.hljs-quote,
-		.hljs-selector-class,
-		.hljs-selector-id,
-		.hljs-string,
-		.hljs-template-tag,
-		.hljs-type {
-			color: #0c8819 !important;
-		}
-
-		.hljs-tag .hljs-attr,
-		.hljs-tag .hljs-name {
-			color: #929292;
-		}
-
-		.hljs-punctuation,
-		.hljs-tag {
-			color: #888;
-		}
-
-		.hljs-attribute,
-		.hljs-doctag,
-		.hljs-keyword,
-		.hljs-meta .hljs-keyword,
-		.hljs-name,
-		.hljs-selector-tag {
-			font-weight: inherit;
-			color: #1f7199;
-		}
-
+		.hljs-function.hljs-keyword,
+		.hljs-literal,
 		.hljs-section,
-		.hljs-title {
-			color: #ca473f;
-			font-weight: 400;
+		.hljs-selector-tag {
+			font-weight: 500;
+			color: rgb(139 92 246);
 		}
 
+		.hljs-bullet,
 		.hljs-link,
+		.hljs-meta,
 		.hljs-operator,
-		.hljs-regexp,
-		.hljs-selector-attr,
-		.hljs-selector-pseudo,
+		.hljs-selector-id,
 		.hljs-symbol,
-		.hljs-template-variable,
+		.hljs-title,
 		.hljs-variable {
-			color: #3f97b9;
+			font-weight: 500;
+			color: rgb(129 140 248);
+		}
+
+		.hljs-addition,
+		.hljs-attribute,
+		.hljs-meta-string,
+		.hljs-regexp,
+		.hljs-string {
+			font-weight: 500;
+			color: rgb(96 165 250);
+		}
+
+		.hljs-doctag,
+		.hljs-formula,
+		.hljs-keyword,
+		.hljs-name {
+			font-weight: 500;
+			color: rgb(248 113 113);
+		}
+
+		.hljs-built_in,
+		.hljs-class .hljs-title,
+		.hljs-template-tag,
+		.hljs-template-variable {
+			font-weight: 500;
+			color: rgb(249 115 22);
+		}
+
+		.hljs-number,
+		.hljs-selector-attr,
+		.hljs-selector-class,
+		.hljs-selector-pseudo,
+		.hljs-string.hljs-subst,
+		.hljs-type {
+			font-weight: 500;
+			color: rgb(52 211 153);
+		}
+
+		.hljs-doctag,
+		.hljs-formula,
+		.hljs-keyword,
+		.hljs-name {
+			font-weight: 500;
+			color: rgb(248 113 113);
+		}
+
+		.hljs-attr,
+		.hljs-deletion,
+		.hljs-function.hljs-keyword,
+		.hljs-literal,
+		.hljs-section,
+		.hljs-selector-tag {
+			color: rgb(139 92 246);
 		}
 
 		.table td,
